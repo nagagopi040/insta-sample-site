@@ -1,57 +1,50 @@
 {
-  "name": "insta-sample-site",
-  "version": "0.0.1",
-  "description": "instagram like application",
-  "main": "index.js",
-  "scripts": {
-    "build": "cross-env NODE_ENV=development webpack",
-    "start": "cross-env NODE_ENV=development node ./public/server.js",
-    "server": "npm run build && npm run start"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nagagopi040/insta-sample-site.git"
-  },
-  "keywords": [
-    "insta"
-  ],
-  "author": "",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/nagagopi040/insta-sample-site/issues"
-  },
-  "homepage": "https://github.com/nagagopi040/insta-sample-site#readme",
+  "name": "sample-insta-app",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
     "bootstrap": "^4.3.1",
-    "cross-env": "^5.2.0",
     "express": "^4.16.4",
     "history": "^4.7.2",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
     "react-redux": "^6.0.1",
+    "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "reactstrap": "^7.1.0",
     "redux": "^4.0.1",
-    "redux-thunk": "^2.3.0",
-    "webpack": "^4.29.5"
+    "redux-thunk": "^2.3.0"
   },
+  "scripts": {
+    "webpack:client": "cross-env NODE_ENV=development webpack --config webpack.client.js --watch",
+    "webpack:server": "cross-env NODE_ENV=development webpack --config webpack.server.js --watch",
+    "webpack:start": "nodemon --watch build --exec node build/bundle.js",
+    "dev": "npm-run-all --parallel webpack:*"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
   "devDependencies": {
     "@babel/core": "^7.3.4",
-    "autoprefixer": "^9.4.9",
-    "babel": "^6.23.0",
+    "@babel/plugin-proposal-class-properties": "^7.3.4",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-react": "^7.0.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.0.5",
-    "babel-preset-react-app": "^7.0.1",
-    "css-loader": "^2.1.0",
-    "extract-text-webpack-plugin": "^4.0.0-beta.0",
-    "file-loader": "^3.0.1",
-    "node-sass": "^4.11.0",
-    "postcss-loader": "^3.0.0",
-    "sass": "^1.17.2",
-    "sass-loader": "^7.1.0",
-    "style-loader": "^0.23.1",
-    "webpack-cli": "^3.2.3"
+    "babel-polyfill": "^6.26.0",
+    "cross-env": "^5.2.0",
+    "npm-run-all": "^4.1.5",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3",
+    "webpack-node-externals": "^1.7.2"
   }
 }

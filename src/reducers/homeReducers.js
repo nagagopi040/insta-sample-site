@@ -1,5 +1,3 @@
-import { REQUEST_FETCHED, REQUEST_FETCHED_FAILED, REQUEST_FETCHED_SUCCEDED } from './actionTypes';
-
 const initialState = {
 	requesting: null,
 	requested: null
@@ -7,25 +5,27 @@ const initialState = {
 
 export default function (state = initialState, action) {
 	switch (action.type) {
-		case REQUEST_FETCHED:
+		case "FETCH_REQUEST":
 			return {
 				...state,
 				requesting: true,
 			};
-		case REQUEST_FETCHED_SUCCEDED:
+		case "FETCH_REQUEST_SUCCEDED":
 			return {
 				...state,
 				requesting: false,
 				requested: true,
-				images: images,
+				posts: action.posts,
+				serverError: action.serverError,
 				status: action.status,
 			};
-		case REQUEST_FETCHED_FAILED:
+		case "FETCH_REQUEST_FAILED":
 			return {
 				...state,
 				requesting: false,
 				requested: false,
-				images: [],
+				posts: [],
+				serverError: action.serverError,
 				status: action.status,
 			}
 		default:
