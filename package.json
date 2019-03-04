@@ -20,7 +20,8 @@
     "webpack:client": "cross-env NODE_ENV=development webpack --config webpack.client.js --watch",
     "webpack:server": "cross-env NODE_ENV=development webpack --config webpack.server.js --watch",
     "webpack:start": "nodemon --watch build --exec node build/bundle.js",
-    "dev": "npm-run-all --parallel webpack:*"
+    "dev": "npm-run-all --parallel webpack:*",
+    "build": "webpack --config webpack.client.js && webpack --config webpack.server.js"
   },
   "eslintConfig": {
     "extends": "react-app"
