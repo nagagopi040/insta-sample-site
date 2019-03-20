@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Router, Switch, Route } from "react-router-dom";
-import { createMemoryHistory } from "history"
+import { createMemoryHistory } from "history";
+
+import "bootstrap/dist/css/bootstrap.min.css";
 import Home from "./pages/home";
 
 const history = createMemoryHistory();
