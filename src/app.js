@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { Router, Switch, Route } from "react-router-dom";
 import { createMemoryHistory } from "history";
 
-import "bootstrap/dist/css/bootstrap.min.css";
 import Home from "./pages/home";
+import "bootstrap/scss/bootstrap.scss";
+import "font-awesome/scss/font-awesome.scss";
 
 const history = createMemoryHistory();
 

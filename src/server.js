@@ -6,8 +6,8 @@ import bodyParser from "body-parser";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 
-import rootReducer from "./src/reducers";
-import App from "./src/App";
+import rootReducer from "./reducers";
+import App from "./app";
 
 var app = express();
 const PORT = 3000;
@@ -45,14 +45,12 @@ function renderFullPage(html, preloadedState) {
         <div id="root">${html}</div>
         <noscript>Your browser does not support JavaScript!</noscript>
         <script>
-          // WARNING: See the following for security issues around embedding JSON in HTML:
-          // http://redux.js.org/recipes/ServerRendering.html#security-considerations
           window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(
             /</g,
             '\\u003c'
           )}
         </script>
-        <script src="client_bundle.js"></script>
+        <script src="bundle.js"></script>
       </body>
     </html>
     `

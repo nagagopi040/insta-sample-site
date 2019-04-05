@@ -1,0 +1,4 @@
+export const HOME_ACTION_TYPES = {
+    GET_ALL_POSTS: "GET_ALL_POSTS",
+    POST_NEW_POST: "POST_NEW_POST"
+}
