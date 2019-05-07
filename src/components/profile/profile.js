@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Row, Col, Card, CardBody, CardImg, CardTitle, CardText, CardLink, Modal, ModalBody, ModalHeader, ModalFooter, ListGroup, ListGroupItem } from "reactstrap";
+import { Row, Col, Card, CardBody, CardTitle, CardText, CardLink, Modal, ModalBody, ListGroup, ListGroupItem } from "reactstrap";
 import axios from "axios";
-import { ProfileImage } from "./../../components";
+import { ProfileImage, SettingsModal } from "./../../components";
 
 export class Profile extends Component{
   constructor(props){
@@ -43,19 +43,6 @@ export class Profile extends Component{
                   <CardTitle tag="h3" className="d-inline px-2">{profile_data.username}</CardTitle>
                   <CardLink href="/edit_profile" className="d-inline px-2 py-1 border">Edit Profile</CardLink>
                   <CardLink href="#" className="d-inline px-2" onClick={this.toggle}>Settings</CardLink>
-                  <Modal isOpen={this.state.openModal} toggle={this.toggle} className={this.props.className}>
-                    <ModalBody className="px-0">
-                      <ListGroup className="text-center">
-                        <ListGroupItem tag="a" href="#" onClick={this.toggle} className="text-decoration-none">Change Password</ListGroupItem>
-                        <ListGroupItem tag="a" href="#" onClick={this.toggle} className="text-decoration-none">NameTag</ListGroupItem>
-                        <ListGroupItem tag="a" href="#" onClick={this.toggle} className="text-decoration-none">Authorized Apps</ListGroupItem>
-                        <ListGroupItem tag="a" href="#" onClick={this.toggle} className="text-decoration-none">Notifications</ListGroupItem>
-                        <ListGroupItem tag="a" href="#" onClick={this.toggle} className="text-decoration-none">Privacy and Security</ListGroupItem>
-                        <ListGroupItem tag="a" href="#" onClick={this.toggle} className="text-decoration-none">Logout</ListGroupItem>
-                        <ListGroupItem tag="a" href="#" onClick={this.toggle} className="text-decoration-none">Cancel</ListGroupItem>
-                      </ListGroup>
-                    </ModalBody>
-                  </Modal>
                 </CardBody>
               </Card>
             </Col>
@@ -67,6 +54,7 @@ export class Profile extends Component{
                   <CardText className="d-inline px-2"><span className="font-weight-bold">{profile_data.no_of_posts}</span> posts</CardText>
                   <CardText className="d-inline px-2"><span className="font-weight-bold">{profile_data.no_of_followers}</span> followers</CardText>
                   <CardText className="d-inline px-2"><span className="font-weight-bold">{profile_data.no_of_following}</span> following</CardText>
+                  <SettingsModal openModal={this.state.openModal} toggle={this.toggle}/>
                 </CardBody>
               </Card>
             </Col>
