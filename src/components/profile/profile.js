@@ -76,6 +76,7 @@ export class Profile extends Component{
               <Card className="border-0">
                 <CardBody className="py-2">
                   <CardTitle className="font-weight-bold px-2">{profile_data.name}</CardTitle>
+                  <CardText className="px-2">{profile_data.bio}</CardText>
                 </CardBody>
               </Card>
             </Col>
