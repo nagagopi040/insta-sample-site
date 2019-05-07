@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, CardImg, Button, Modal } from "reactstrap";
+import { Card, CardImg, CardLink } from "reactstrap";
 
 import { PostModal } from "./../post-modal";
 export class PostCard extends Component {
@@ -19,10 +19,10 @@ export class PostCard extends Component {
   render(){
     const { props } = this;
     return(
-      <Card className="border-0 py-0">
-        <Button color="link" className="m-1 p-0 h-100" onClick={this.openModal}>
-          <CardImg src={props.image} alt={props.image} height="100%" />
-        </Button>
+      <Card className="border-0 py-0 h-100">
+        <CardLink href="#" className="m-1 p-0 h-100" onClick={this.openModal}>
+          <CardImg src={props.image} alt={props.image} height="100%" width="100%" />
+        </CardLink>
         <PostModal {...props} isOpen={this.state.modal} toggle={this.openModal}/>
       </Card>
     )

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from "redux";
 import { Container, Row, Col } from "reactstrap";
 
-import { PostCard } from "./../../components";
+import { PostCard, Profile } from "./../../components";
 import { getAllPosts } from "./actions";
 import { API } from "./../../utils";
 
@@ -19,12 +19,13 @@ class Home extends Component{
   render(){
     const { posts } = this.props;
     return(
-      <Container>
+      <Container className="px-5">
+        <Profile />
         <Row>
             {
               posts.map(( post, index )  => {
                 return(
-                  <Col xs="4" key={index} className="px-0">
+                  <Col xs="4" key={index} className="p-1">
                     <PostCard {...post} key={post.id} />
                   </Col>
                 )

@@ -29,10 +29,10 @@ export class PostModal extends Component {
     const { props } = this;
     const { likes, isLiked } =this.state
     return(
-      <Modal isOpen={this.props.isOpen} toggle={this.props.toggle} className="p-0 m-0 border-0">
-        <CardTitle className="d-flex flex-row p-0 border-0">
+      <Modal isOpen={this.props.isOpen} toggle={this.props.toggle} className="border-0">
+        <CardTitle className="d-flex flex-row p-0 border-0 text-center">
           <Button color="transparent" className=" d-inline fa fa-arrow-left no-underline text-dark" aria-hidden="true" onClick={this.props.toggle}></Button>
-          <CardText tag="h5" className="d-inline">Post</CardText>
+          <CardText tag="h5" className="d-inline text-center">Post</CardText>
         </CardTitle>
         <ModalBody className="w-100 p-0 pb-2">
           <Card className="border-0 p-0">
@@ -42,17 +42,14 @@ export class PostModal extends Component {
               <CardLink className="d-inline fa fa-comment-o" aria-hidden="true" onClick={ () => this.goToINputText()}></CardLink>
             </CardBody>
             <CardBody className="border-0">
-              <CardText className="text-dark">{props.views} views</CardText>
+              <CardText className="text-dark">{props.views > 0 ? props.views+" views" : null}</CardText>
               <CardText className="text-dark">{props.title}</CardText>
+              <CardLink className="" aria-hidden="true" onClick={ () => this.viewComments()}>view comments</CardLink>
+              <Label for="comment" className="d-flex flex-row border-1">
+                <Input type="text" id="main_commentbox" name="comment" innerRef={(input) => this.comment = input} placeholder="Add a comment" className="d-inline border-0 border-bottom-1"/>
+                <Button color="primary" className="d-inline border-0" onClick={ () => this.updateComments()}>post</Button>
+              </Label>
             </CardBody>
-            {
-              props.comments.length > 0 &&
-                <CardLink className="d-inline fa fa-comment-o" aria-hidden="true" onClick={ () => this.viewComments()}></CardLink>
-            }
-            <Label for="comment" className="d-flex flex-row border-1">
-              <Input type="text" id="main_commentbox" name="comment" innerRef={(input) => this.comment = input} placeholder="Add a comment" className="d-inline border-0 border-bottom-1"/>
-              <Button color="primary" className="d-inline border-0" onClick={ () => this.updateComments()}>post</Button>
-            </Label>
           </Card>
         </ModalBody>
       </Modal>
